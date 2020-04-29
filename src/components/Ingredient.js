@@ -7,6 +7,7 @@ class Ingredient extends React.Component{
         this.state = {
             ingredientId : props.ingredientId,
             ingredientName : props.ingredientName,
+            isBlocked : props.isBlocked,
             isSelected : false  
         }
     }
@@ -14,13 +15,18 @@ class Ingredient extends React.Component{
     clickHandler() {
          this.setState({
             isSelected : !this.state.isSelected
+        }, () => {
+            this.props.parentMethod(this.state.isSelected)           
         }) 
     }
 
     render() {
         return (
             <div>
-                <input type="checkbox" onClick={() => this.clickHandler()}/>
+                {(this.props.isBlocked && !this.state.isSelected) ? 
+                    '':
+                    <input type="checkbox" onClick={() => this.clickHandler()}/>
+                } 
                 <label>{this.state.ingredientName}</label>
             </div>
         )
