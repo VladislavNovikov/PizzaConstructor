@@ -1,11 +1,10 @@
-import React from 'react';
-import './App.css';
-import Greet from './components/Greet'
+import React from 'react'
+import PizzaConstructor from './components/PizzaConstructor'
 
 function App() {
   return (
-    <div className="App">
-      <Greet name='Vlad'/>
+    <div>
+      <PizzaConstructor/>
     </div>
   );
 }
