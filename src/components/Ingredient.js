@@ -3,7 +3,7 @@ import React from 'react';
 class Ingredient extends React.Component{
 
     constructor(props){
-        super(props)
+        super()
         this.state = {
             ingredientId : props.ingredientId,
             ingredientName : props.ingredientName,

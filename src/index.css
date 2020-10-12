@@ -5,6 +5,18 @@
     padding: 10px;
 }
 
+h5{
+    margin-bottom: 5px;
+}
+
 .warning{
-    color: red
+    color: red;
+}
+
+span, button{
+    margin-left: 5px;
+}
+
+div{
+    margin-top: 5px;
 }

@@ -12,26 +12,27 @@ class PizzaConstructor extends React.Component{
         }
     }
 
-    parentMethod(wasSelected){
+    parentMethod = (wasSelected) => {
         let count = this.state.currentCountOfSelectedIngredients
         this.setState({
-            currentCountOfSelectedIngredients : (wasSelected)? count + 1 : count - 1
+            currentCountOfSelectedIngredients : (wasSelected) ? count + 1 : count - 1
         }) 
     }
 
     render() {
         return (
-            <div className='container'>
+            <div>
                 <h2>Pizza Constructor</h2>
+                <h5>Clicked {this.state.currentCountOfSelectedIngredients} times</h5>
+                {(this.state.currentCountOfSelectedIngredients===5)?<b className='warning'>Can not select more than five items!</b>:''}
                 {
                 this.state.ingredients.map( (item, key) =>
                     <Ingredient ingredientName={item} ingredientId={key} 
-                        parentMethod={this.parentMethod.bind(this)} 
-                        isBlocked={(this.state.currentCountOfSelectedIngredients >= 5)? true : false}
+                        parentMethod={this.parentMethod} 
+                        isBlocked={(this.state.currentCountOfSelectedIngredients === 5)? true : false}
                         key={key}
                     />
                 )}
-                {(this.state.currentCountOfSelectedIngredients===5)?<b className='warning'>Can not select more than five items!</b>:''}
             </div>
         )
     }
